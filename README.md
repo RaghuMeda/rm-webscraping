@@ -5,4 +5,4 @@ This project does the scraping of a given webpage, extracts and prints the requi
 ## Test in Local Environment (eg. within IDE or command prompt)
 Assuming bs4 and requests python packages are installed in the environment:
 ```sh
-$ python3 rm-webscrape/fetchlinks.py https://www.apple.com/mac
+$ python3 rm-webscrape/src/fetchlinks.py https://www.apple.com/mac
