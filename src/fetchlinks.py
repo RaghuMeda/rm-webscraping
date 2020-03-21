@@ -24,13 +24,15 @@ def extractLinks(url: str, linkclass: str):
         headers = requests.utils.default_headers()
         headers.update({ 'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'})
 
-        url = "https://apple.com/mac"
         req = requests.get(url, headers)
         soup = BeautifulSoup(req.content, 'html.parser')
         logger.debug(f'\nContent from the given web page::::::::\n{soup.prettify()}')
 
         for link in soup.find_all("a", class_=linkclass):
             links.append(link.get('href'))
+        if len(links) == 0:
+            for link in soup.find_all("a"):
+                links.append(link.get('href'))
     except RuntimeError:
         logger.info(f'\nUnexpected runtime error occured while fetching the data from the given web page: \n{traceback.format_exc()}')
         

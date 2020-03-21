@@ -23,6 +23,3 @@ pip3 install -r requirements.txt -t build/
 python3 -m zipfile -c rm-webscrape.zip build/*
 
 echo "build completed and rm-webscrape.zip has been generated"
-
-# remove build dir
-rm -rf build
